@@ -14,26 +14,26 @@ import { areDatesEqual, dateIsBetween, isDateAfter, isDateBefore } from './dateU
 export class Transformer {
     public static getResponse(request: GridRequest, dataSource: any[]): GridResponse {
         const response = new GridResponse(request.counter);
-        response.totalRecordCount = dataSource.length;
+        response.TotalRecordCount = dataSource.length;
 
         let data = this.applyFreeTextSearch(request, dataSource);
         data = this.applyFiltering(request, data);
         data = this.applySorting(request, data);
 
-        response.filteredRecordCount = data.length;
+        response.FilteredRecordCount = data.length;
 
         if (request.take > -1) {
-            response.totalPages = Math.ceil(response.filteredRecordCount / request.take);
+            response.TotalPages = Math.ceil(response.FilteredRecordCount / request.take);
 
-            if (response.totalPages > 0) {
-                response.currentPage = request.skip / request.take + 1;
+            if (response.TotalPages > 0) {
+                response.CurrentPage = request.skip / request.take + 1;
             }
         }
 
-        response.aggregationPayload = this.getAggregatePayload(request, data);
+        response.AggregationPayload = this.getAggregatePayload(request, data);
 
         const sliceSize = request.take === -1 ? data.length : request.skip + request.take;
-        response.payload = data
+        response.Payload = data
             .slice(request.skip, sliceSize)
             .map((row: Record<string, unknown>) => parsePayload(row, request.columns));
 

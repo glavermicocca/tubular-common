@@ -1,13 +1,13 @@
 export class GridResponse {
-    public aggregationPayload: Record<string, number>;
-    public counter: number;
-    public currentPage = 0;
-    public filteredRecordCount: number;
-    public payload: any;
-    public totalPages = 1;
-    public totalRecordCount: number;
+    public AggregationPayload: Record<string, number>;
+    public Counter: number;
+    public CurrentPage = 0;
+    public FilteredRecordCount: number;
+    public Payload: any;
+    public TotalPages = 1;
+    public TotalRecordCount: number;
 
-    constructor(counter = 0) {
-        this.counter = isNaN(counter) ? 0 : counter;
+    constructor(Counter = 0) {
+        this.Counter = isNaN(Counter) ? 0 : Counter;
     }
 }

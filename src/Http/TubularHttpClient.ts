@@ -13,13 +13,13 @@ const responseKeys = [
 ];
 
 const expectedStructureKeys = JSON.stringify([
-    'aggregationpayload',
-    'counter',
-    'currentpage',
-    'filteredrecordcount',
-    'payload',
-    'totalpages',
-    'totalrecordcount',
+    'Aggregationpayload',
+    'Counter',
+    'Currentpage',
+    'Filteredrecordcount',
+    'Payload',
+    'Totalpages',
+    'Totalrecordcount',
 ]);
 
 export class TubularHttpClient implements TubularHttpClientAbstract {
